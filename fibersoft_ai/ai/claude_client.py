@@ -166,6 +166,9 @@ class StreamAssembler:
 				self.partial_json[idx] = ""
 			if block.get("type") == "text":
 				block["text"] = block.get("text") or ""
+			if block.get("type") == "thinking":
+				block["thinking"] = block.get("thinking") or ""
+				block["signature"] = block.get("signature") or ""
 			self.blocks[idx] = block
 		elif etype == "content_block_delta":
 			idx = ev["index"]
@@ -176,6 +179,10 @@ class StreamAssembler:
 				return delta.get("text", "")
 			if delta.get("type") == "input_json_delta":
 				self.partial_json[idx] = self.partial_json.get(idx, "") + delta.get("partial_json", "")
+			if delta.get("type") == "thinking_delta":
+				block["thinking"] = block.get("thinking", "") + delta.get("thinking", "")
+			if delta.get("type") == "signature_delta":
+				block["signature"] = block.get("signature", "") + delta.get("signature", "")
 		elif etype == "content_block_stop":
 			idx = ev["index"]
 			if idx in self.partial_json:
