@@ -165,6 +165,7 @@ class Turn:
 				content = [
 					b for b in (resp.get("content") or [])
 					if not (b.get("type") == "text" and not (b.get("text") or "").strip())
+					and not (b.get("type") == "thinking" and not ((b.get("thinking") or "").strip() and b.get("signature")))
 				]
 				messages.append({"role": "assistant", "content": content or [{"type": "text", "text": "(no output)"}]})
 				tool_uses = [b for b in content if b.get("type") == "tool_use"]
