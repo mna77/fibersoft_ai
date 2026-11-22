@@ -1,0 +1,76 @@
+{
+ "charts": [],
+ "content": "[{\"id\": \"fai_h1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Fibersoft AI</b></span>\", \"col\": 12}}, {\"id\": \"fai_s0\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Settings\", \"col\": 4}}, {\"id\": \"fai_s1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Token Limits\", \"col\": 4}}, {\"id\": \"fai_s2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Usage Report\", \"col\": 4}}, {\"id\": \"fai_s3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Conversations\", \"col\": 4}}, {\"id\": \"fai_s4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Action Log\", \"col\": 4}}, {\"id\": \"fai_s5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Messages\", \"col\": 4}}]",
+ "creation": "2026-11-22 13:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Fibersoft AI",
+ "links": [],
+ "modified": "2026-11-22 13:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Fibersoft AI",
+ "name": "Fibersoft AI",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 60.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Settings",
+   "link_to": "Fibersoft AI Settings",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Token Limits",
+   "link_to": "Fibersoft AI Token Limit",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Usage Report",
+   "link_to": "Fibersoft AI Usage",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Conversations",
+   "link_to": "Fibersoft AI Conversation",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Action Log",
+   "link_to": "Fibersoft AI Action",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "",
+   "label": "Messages",
+   "link_to": "Fibersoft AI Message",
+   "type": "DocType"
+  }
+ ],
+ "title": "Fibersoft AI"
+}

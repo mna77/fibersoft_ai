@@ -1,0 +1,189 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-11-22 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "enabled",
+  "limit_for",
+  "user",
+  "role",
+  "priority",
+  "cb_limit_1",
+  "model",
+  "note",
+  "sb_tokens",
+  "daily_token_limit",
+  "cb_limit_2",
+  "weekly_token_limit",
+  "cb_limit_3",
+  "monthly_token_limit",
+  "sb_questions",
+  "daily_question_limit",
+  "cb_limit_4",
+  "monthly_cost_limit_usd",
+  "sb_usage",
+  "usage_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "default": "User",
+   "description": "A User rule wins over Role rules; among Role rules the highest Priority wins; Everyone applies to all remaining users.",
+   "fieldname": "limit_for",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Limit For",
+   "options": "User\nRole\nEveryone",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.limit_for=='User'",
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "User",
+   "mandatory_depends_on": "eval:doc.limit_for=='User'",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:doc.limit_for=='Role'",
+   "fieldname": "role",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Role",
+   "mandatory_depends_on": "eval:doc.limit_for=='Role'",
+   "options": "Role"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.limit_for=='Role'",
+   "description": "If a user has several roles with rules, the rule with the highest priority applies.",
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority"
+  },
+  {
+   "fieldname": "cb_limit_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Optional, e.g. claude-haiku-5-5 for light users or claude-opus-5-5 for managers. Empty = model from settings.",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model Override"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Small Text",
+   "label": "Note"
+  },
+  {
+   "description": "0 = unlimited. Counted tokens = input + output + cache writes + 10% of cached reads (cached reads cost one tenth).",
+   "fieldname": "sb_tokens",
+   "fieldtype": "Section Break",
+   "label": "Token Allocation"
+  },
+  {
+   "fieldname": "daily_token_limit",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Daily Tokens"
+  },
+  {
+   "fieldname": "cb_limit_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Week starts Monday",
+   "fieldname": "weekly_token_limit",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Weekly Tokens"
+  },
+  {
+   "fieldname": "cb_limit_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "monthly_token_limit",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Monthly Tokens"
+  },
+  {
+   "fieldname": "sb_questions",
+   "fieldtype": "Section Break",
+   "label": "Other Limits"
+  },
+  {
+   "description": "0 = use 'Daily Questions per User' from Fibersoft AI Settings",
+   "fieldname": "daily_question_limit",
+   "fieldtype": "Int",
+   "label": "Daily Questions"
+  },
+  {
+   "fieldname": "cb_limit_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "0 = unlimited",
+   "fieldname": "monthly_cost_limit_usd",
+   "fieldtype": "Float",
+   "label": "Monthly Cost Limit (USD)"
+  },
+  {
+   "fieldname": "sb_usage",
+   "fieldtype": "Section Break",
+   "label": "Current Usage"
+  },
+  {
+   "fieldname": "usage_html",
+   "fieldtype": "HTML",
+   "label": "Usage"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Fibersoft AI",
+ "name": "Fibersoft AI Token Limit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

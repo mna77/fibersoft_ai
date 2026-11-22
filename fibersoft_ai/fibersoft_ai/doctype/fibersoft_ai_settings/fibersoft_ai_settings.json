@@ -1,0 +1,338 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-22 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_general",
+  "enabled",
+  "assistant_name",
+  "welcome_message",
+  "cb_general",
+  "launcher_icon",
+  "theme_color",
+  "launcher_position",
+  "enable_voice",
+  "sb_api",
+  "api_key",
+  "model",
+  "max_tokens",
+  "max_tool_iterations",
+  "cb_api",
+  "api_base_url",
+  "request_timeout",
+  "history_messages",
+  "enable_prompt_caching",
+  "run_in_background",
+  "test_connection_btn",
+  "sb_limits",
+  "input_cost_per_million",
+  "output_cost_per_million",
+  "cb_limits",
+  "daily_message_limit",
+  "monthly_budget_usd",
+  "usage_html",
+  "sb_access",
+  "allowed_roles",
+  "cb_access",
+  "blocked_doctypes",
+  "sb_redact",
+  "redacted_fields",
+  "sb_actions",
+  "allow_actions",
+  "validate_before_proposing",
+  "action_expiry_hours",
+  "action_rules",
+  "sb_knowledge",
+  "business_context",
+  "knowledge",
+  "sb_maint",
+  "log_retention_days"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_general",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enable Assistant"
+  },
+  {
+   "default": "Fibersoft AI",
+   "fieldname": "assistant_name",
+   "fieldtype": "Data",
+   "label": "Assistant Name"
+  },
+  {
+   "default": "Assalam-o-Alaikum! I can read the screen you are on, look up records and reports, and prepare actions for you to confirm. What would you like to know?",
+   "fieldname": "welcome_message",
+   "fieldtype": "Small Text",
+   "label": "Welcome Message"
+  },
+  {
+   "fieldname": "cb_general",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Optional. Leave empty to use the built-in black & white Fibersoft logo.",
+   "fieldname": "launcher_icon",
+   "fieldtype": "Attach Image",
+   "label": "Launcher Icon"
+  },
+  {
+   "default": "#111111",
+   "description": "Black by default to match the Fibersoft logo",
+   "fieldname": "theme_color",
+   "fieldtype": "Color",
+   "label": "Theme Colour"
+  },
+  {
+   "default": "Bottom Right",
+   "fieldname": "launcher_position",
+   "fieldtype": "Select",
+   "label": "Launcher Position",
+   "options": "Bottom Right\nBottom Left"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_voice",
+   "fieldtype": "Check",
+   "label": "Enable Voice Input"
+  },
+  {
+   "fieldname": "sb_api",
+   "fieldtype": "Section Break",
+   "label": "Claude API"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "label": "Anthropic API Key",
+   "length": 512
+  },
+  {
+   "default": "claude-sonnet-5-5",
+   "description": "e.g. claude-sonnet-5-5 (balanced), claude-opus-5-5 (most capable), claude-haiku-5-5 (fastest/cheapest)",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model",
+   "reqd": 1
+  },
+  {
+   "default": "4096",
+   "fieldname": "max_tokens",
+   "fieldtype": "Int",
+   "label": "Max Output Tokens"
+  },
+  {
+   "default": "15",
+   "fieldname": "max_tool_iterations",
+   "fieldtype": "Int",
+   "label": "Max Tool Steps per Question"
+  },
+  {
+   "fieldname": "cb_api",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "https://api.anthropic.com",
+   "fieldname": "api_base_url",
+   "fieldtype": "Data",
+   "label": "API Base URL"
+  },
+  {
+   "default": "120",
+   "fieldname": "request_timeout",
+   "fieldtype": "Int",
+   "label": "Request Timeout (seconds)"
+  },
+  {
+   "default": "20",
+   "fieldname": "history_messages",
+   "fieldtype": "Int",
+   "label": "Conversation Memory (messages)"
+  },
+  {
+   "default": "1",
+   "description": "Reuses the fixed part of the instructions between questions to cut cost and latency.",
+   "fieldname": "enable_prompt_caching",
+   "fieldtype": "Check",
+   "label": "Enable Prompt Caching"
+  },
+  {
+   "default": "1",
+   "description": "Recommended. Answers stream live via background workers. Untick only if background workers are not running.",
+   "fieldname": "run_in_background",
+   "fieldtype": "Check",
+   "label": "Run in Background Worker"
+  },
+  {
+   "fieldname": "test_connection_btn",
+   "fieldtype": "Button",
+   "label": "Test Connection"
+  },
+  {
+   "fieldname": "sb_limits",
+   "fieldtype": "Section Break",
+   "label": "Cost & Limits"
+  },
+  {
+   "default": "3",
+   "description": "Check your model's price on the Anthropic pricing page.",
+   "fieldname": "input_cost_per_million",
+   "fieldtype": "Float",
+   "label": "Input Cost (USD / 1M tokens)"
+  },
+  {
+   "default": "15",
+   "fieldname": "output_cost_per_million",
+   "fieldtype": "Float",
+   "label": "Output Cost (USD / 1M tokens)"
+  },
+  {
+   "fieldname": "cb_limits",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "150",
+   "description": "0 = unlimited",
+   "fieldname": "daily_message_limit",
+   "fieldtype": "Int",
+   "label": "Daily Questions per User"
+  },
+  {
+   "default": "0",
+   "description": "0 = unlimited. The assistant pauses when the month's estimated cost reaches this.",
+   "fieldname": "monthly_budget_usd",
+   "fieldtype": "Float",
+   "label": "Monthly Budget (USD)"
+  },
+  {
+   "fieldname": "usage_html",
+   "fieldtype": "HTML",
+   "label": "Usage"
+  },
+  {
+   "collapsible": 0,
+   "fieldname": "sb_access",
+   "fieldtype": "Section Break",
+   "label": "Access & Privacy"
+  },
+  {
+   "description": "Leave empty to allow every desk user.",
+   "fieldname": "allowed_roles",
+   "fieldtype": "Table",
+   "label": "Allowed Roles",
+   "options": "Fibersoft AI Role"
+  },
+  {
+   "fieldname": "cb_access",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "The assistant can never read or act on these.",
+   "fieldname": "blocked_doctypes",
+   "fieldtype": "Table",
+   "label": "Blocked DocTypes",
+   "options": "Fibersoft AI Blocked DocType"
+  },
+  {
+   "fieldname": "sb_redact",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "redacted_fields",
+   "fieldtype": "Table",
+   "label": "Redacted Fields",
+   "options": "Fibersoft AI Redacted Field"
+  },
+  {
+   "fieldname": "sb_actions",
+   "fieldtype": "Section Break",
+   "label": "Actions"
+  },
+  {
+   "default": "0",
+   "description": "The assistant prepares actions; the user must click Confirm before anything is changed. Users' own permissions always apply.",
+   "fieldname": "allow_actions",
+   "fieldtype": "Check",
+   "label": "Allow Actions"
+  },
+  {
+   "default": "1",
+   "description": "Test-runs each action in a rolled-back transaction so the assistant can fix errors before asking you to confirm.",
+   "fieldname": "validate_before_proposing",
+   "fieldtype": "Check",
+   "label": "Dry-run Validate Actions"
+  },
+  {
+   "default": "24",
+   "fieldname": "action_expiry_hours",
+   "fieldtype": "Int",
+   "label": "Unconfirmed Action Expiry (hours)"
+  },
+  {
+   "description": "Only DocTypes listed here can be changed by the assistant.",
+   "fieldname": "action_rules",
+   "fieldtype": "Table",
+   "label": "Action Rules",
+   "options": "Fibersoft AI Action Rule"
+  },
+  {
+   "fieldname": "sb_knowledge",
+   "fieldtype": "Section Break",
+   "label": "Business Knowledge"
+  },
+  {
+   "description": "Tell the assistant about your company, industry, naming conventions, custom fields and reports. Included with every question.",
+   "fieldname": "business_context",
+   "fieldtype": "Long Text",
+   "label": "Company & Business Context"
+  },
+  {
+   "fieldname": "knowledge",
+   "fieldtype": "Table",
+   "label": "Knowledge Entries",
+   "options": "Fibersoft AI Knowledge"
+  },
+  {
+   "fieldname": "sb_maint",
+   "fieldtype": "Section Break",
+   "label": "Maintenance"
+  },
+  {
+   "default": "180",
+   "description": "0 = keep forever",
+   "fieldname": "log_retention_days",
+   "fieldtype": "Int",
+   "label": "Keep Chat History (days)"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-22 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Fibersoft AI",
+ "name": "Fibersoft AI Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
